@@ -1,0 +1,12 @@
+{
+    "name": "NewsletterTransferPlugin",
+    "namespace": "NewsletterTransfer",
+    "author": "Ihr Name",
+    "email": "IhreEmail@example.com",
+    "version": "1.0.0",
+    "type": "backend",
+    "require": {
+      "php": ">=8.0"
+    }
+  }
+  

@@ -1,0 +1,14 @@
+{
+    "name": "newsletter/transfer-plugin",
+    "description": "A plugin to transfer PlentyMarkets newsletter recipients to Emailsys.",
+    "require": {
+      "plenty/codegenerator": "^1.0",
+      "guzzlehttp/guzzle": "^7.3"
+    },
+    "autoload": {
+      "psr-4": {
+        "NewsletterTransfer\\": "src/"
+      }
+    }
+  }
+  
