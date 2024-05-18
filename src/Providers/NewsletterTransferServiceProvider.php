@@ -4,6 +4,9 @@ namespace NewsletterTransfer\Providers;
 
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\ConfigRepository;
+use Plenty\Plugin\Events\Dispatcher;
+use Plenty\Modules\Plugin\Menu\Contracts\MenuRepositoryContract;
+use Plenty\Modules\Plugin\Menu\Events\LoadMenu;
 use NewsletterTransfer\Providers\NewsletterTransferRouteServiceProvider;
 use NewsletterTransfer\Providers\NewsletterTransferConfigServiceProvider;
 
@@ -15,13 +18,19 @@ class NewsletterTransferServiceProvider extends ServiceProvider
         $this->getApplication()->register(NewsletterTransferConfigServiceProvider::class);
     }
 
-    public function boot(ConfigRepository $configRepository)
+    public function boot(MenuRepositoryContract $menuRepository, Dispatcher $eventDispatcher)
     {
-        // Registrieren Sie den Menüpunkt
-        $configRepository->set('plugin.menu', [
-            'label' => 'Newsletter Transfer Plugin',
-            'url' => '/newsletter-transfer/config',
-            'icon' => 'fa-envelope'
-        ]);
+        // Menüeintrag unter "Einstellungen" hinzufügen
+        $eventDispatcher->listen(LoadMenu::class, function (LoadMenu $event) use ($menuRepository) {
+            $menuRepository->addSubMenu(
+                'menu.configuration',
+                'NewsletterTransfer',
+                [
+                    'name' => 'Newsletter Transfer Plugin',
+                    'url' => '/newsletter-transfer/config',
+                    'icon' => 'fa-envelope'
+                ]
+            );
+        });
     }
 }
