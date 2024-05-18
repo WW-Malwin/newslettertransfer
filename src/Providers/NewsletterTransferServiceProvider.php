@@ -23,7 +23,7 @@ class NewsletterTransferServiceProvider extends ServiceProvider
         // Menüeintrag unter "Einstellungen" hinzufügen
         $eventDispatcher->listen(LoadMenu::class, function (LoadMenu $event) use ($menuRepository) {
             $menuRepository->addSubMenu(
-                'menu.configuration',
+                'menu.settings',  // Dies ist der Menübereich "Einstellungen"
                 'NewsletterTransfer',
                 [
                     'name' => 'Newsletter Transfer Plugin',
