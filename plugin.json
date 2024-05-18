@@ -4,5 +4,8 @@
   "author": "Ihr Name",
   "email": "IhreEmail@example.com",
   "version": "1.0.0",
-  "type": "backend"
+  "type": "backend",
+  "require": {
+    "plenty:php": ">=8.0"
   }
+}
