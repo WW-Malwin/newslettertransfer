@@ -4,5 +4,14 @@
   "author": "Ihr Name",
   "email": "IhreEmail@example.com",
   "version": "1.0.0",
-  "type": "backend"
+  "type": "backend",
+  "serviceProvider": "NewsletterTransfer\\Providers\\NewsletterTransferServiceProvider",
+  "routes": {
+    "backend": {
+      "NewsletterTransfer\\Controllers\\ConfigController": [
+        "routes/backend.php"
+      ]
+    }
+  },
+  "settingsHandler": "NewsletterTransfer\\Services\\SettingsService"
 }

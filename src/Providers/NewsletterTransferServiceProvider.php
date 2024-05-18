@@ -2,13 +2,24 @@
 
 namespace NewsletterTransfer\Providers;
 
-use Plenty\Plugin\RouteServiceProvider;
-use Plenty\Plugin\Routing\Router;
+use Plenty\Plugin\ServiceProvider;
+use Plenty\Plugin\ConfigRepository;
 
-class NewsletterTransferRouteServiceProvider extends RouteServiceProvider
+class NewsletterTransferServiceProvider extends ServiceProvider
 {
-    public function map(Router $router)
+    public function register()
     {
-        $router->get('transfer-newsletter', 'NewsletterTransfer\Controllers\NewsletterTransferController@transfer');
+        $this->getApplication()->register(NewsletterTransferRouteServiceProvider::class);
+        $this->getApplication()->register(NewsletterTransferConfigServiceProvider::class);
+    }
+
+    public function boot(ConfigRepository $configRepository)
+    {
+        // Registrieren Sie den Menüpunkt
+        $configRepository->set('plugin.menu', [
+            'label' => 'Newsletter Transfer Plugin',
+            'url' => '/newsletter-transfer/config',
+            'icon' => 'fa-envelope'
+        ]);
     }
 }

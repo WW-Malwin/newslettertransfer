@@ -1,0 +1,22 @@
+<form method="POST" action="/newsletter-transfer/config">
+    <div>
+        <label for="apiEndpoint">API Endpoint:</label>
+        <input type="text" id="apiEndpoint" name="apiEndpoint" value="{{ apiEndpoint }}" required>
+    </div>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ username }}" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="{{ password }}" required>
+    </div>
+    <div>
+        <button type="submit">Save Configuration</button>
+    </div>
+</form>
+<form method="GET" action="/transfer-newsletter">
+    <div>
+        <button type="submit">Transfer Newsletter Recipients</button>
+    </div>
+</form>
