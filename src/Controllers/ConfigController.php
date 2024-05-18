@@ -28,6 +28,7 @@ class ConfigController extends Controller
         $configRepository->set('NewsletterTransfer.username', $request->get('username'));
         $configRepository->set('NewsletterTransfer.password', $request->get('password'));
 
-        return redirect()->back()->with('success', 'Configuration saved successfully');
+        // Leiten Sie zurück zu der Konfigurationsseite
+        return $this->showConfig(pluginApp(Twig::class), $configRepository);
     }
 }

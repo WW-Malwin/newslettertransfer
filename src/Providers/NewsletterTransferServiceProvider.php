@@ -4,6 +4,8 @@ namespace NewsletterTransfer\Providers;
 
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\ConfigRepository;
+use NewsletterTransfer\Providers\NewsletterTransferRouteServiceProvider;
+use NewsletterTransfer\Providers\NewsletterTransferConfigServiceProvider;
 
 class NewsletterTransferServiceProvider extends ServiceProvider
 {

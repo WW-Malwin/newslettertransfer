@@ -5,23 +5,22 @@ namespace NewsletterTransfer\Controllers;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\ConfigRepository;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-use Plenty\Modules\Frontend\Services\AccountService;
+use Plenty\Plugin\Http\Request as PluginRequest;
 use Plenty\Modules\Newsletter\Services\NewsletterService;
+use GuzzleHttp\Client;
 
 class NewsletterTransferController extends Controller
 {
     private $client;
     private $newsletterService;
 
-    public function __construct(NewsletterService $newsletterService)
+    public function __construct(NewsletterService $newsletterService, Client $client)
     {
-        $this->client = new Client();
         $this->newsletterService = $newsletterService;
+        $this->client = $client;
     }
 
-    public function transfer(Request $request, ConfigRepository $config)
+    public function transfer(PluginRequest $request, ConfigRepository $config)
     {
         $apiEndpoint = $config->get('NewsletterTransfer.apiEndpoint');
         $username = $config->get('NewsletterTransfer.username');
@@ -47,12 +46,18 @@ class NewsletterTransferController extends Controller
                 if ($response->getStatusCode() !== 200) {
                     // Fehlerbehandlung hier
                 }
-            } catch (RequestException $e) {
+            } catch (\Exception $e) {
                 // Fehlerbehandlung hier
             }
         }
 
         return 'Transfer completed!';
+    }
+
+    public function manualTransfer()
+    {
+        // Hier können Sie eine einfache Ansicht zurückgeben, die einen Button zum Starten des Transfers enthält
+        return '<form method="GET" action="/transfer-newsletter"><button type="submit">Transfer Newsletter Recipients</button></form>';
     }
 
     private function getNewsletterSubscribers()
