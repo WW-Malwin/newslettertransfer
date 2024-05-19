@@ -1,44 +1,33 @@
 {
-    "formatVersion": 1,
-    "menu": {
-      "Config.credentialsTab": {
-        "label": "Credentials",
-        "formFields": {
-          "apiEndpoint": {
-            "type": "inputText",
-            "required": true,
-            "label": "API Endpoint",
-            "options": {
-              "defaultValue": "https://api.emailsys.net/v1/subscribers"
-            }
-          },
-          "username": {
-            "type": "inputText",
-            "required": true,
-            "label": "Username",
-            "options": {
-              "defaultValue": ""
-            }
-          },
-          "password": {
-            "type": "inputText",
-            "required": true,
-            "label": "Password",
-            "options": {
-              "defaultValue": "",
-              "isPassword": true
-            }
-          },
-          "transferButton": {
-            "type": "button",
-            "label": "Transfer Newsletter Recipients",
-            "options": {
-              "buttonLabel": "Transfer",
-              "url": "/newsletter-transfer/manual"
-            }
-          }
-        }
-      }
+  "formatVersion": 1,
+  "settings": {
+    "title": "Newsletter Transfer Plugin",
+    "type": "category",
+    "icon": "fa-envelope",
+    "parent": "menu.crm"
+  },
+  "settings_items": [
+    {
+      "name": "apiEndpoint",
+      "title": "API Endpoint",
+      "type": "inputText",
+      "defaultValue": "https://api.emailsys.net/v1/subscribers",
+      "required": true
+    },
+    {
+      "name": "username",
+      "title": "Username",
+      "type": "inputText",
+      "defaultValue": "",
+      "required": true
+    },
+    {
+      "name": "password",
+      "title": "Password",
+      "type": "inputText",
+      "defaultValue": "",
+      "isPassword": true,
+      "required": true
     }
-  }
-  
+  ]
+}
