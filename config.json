@@ -2,12 +2,12 @@
     "formatVersion": 1,
     "menu": {
       "Config.credentialsTab": {
-        "label": "Config.credentialsTab",
+        "label": "Credentials",
         "formFields": {
           "apiEndpoint": {
             "type": "inputText",
             "required": true,
-            "label": "Config.apiEndpointLabel",
+            "label": "API Endpoint",
             "options": {
               "defaultValue": "https://api.emailsys.net/v1/subscribers"
             }
@@ -15,7 +15,7 @@
           "username": {
             "type": "inputText",
             "required": true,
-            "label": "Config.usernameLabel",
+            "label": "Username",
             "options": {
               "defaultValue": ""
             }
@@ -23,10 +23,18 @@
           "password": {
             "type": "inputText",
             "required": true,
-            "label": "Config.passwordLabel",
+            "label": "Password",
             "options": {
               "defaultValue": "",
               "isPassword": true
+            }
+          },
+          "transferButton": {
+            "type": "button",
+            "label": "Transfer Newsletter Recipients",
+            "options": {
+              "buttonLabel": "Transfer",
+              "url": "/newsletter-transfer/manual"
             }
           }
         }

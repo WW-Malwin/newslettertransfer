@@ -12,6 +12,6 @@ class NewsletterTransferRouteServiceProvider extends RouteServiceProvider
         $router->get('newsletter-transfer/config', 'NewsletterTransfer\Controllers\ConfigController@showConfig');
         $router->post('newsletter-transfer/config', 'NewsletterTransfer\Controllers\ConfigController@saveConfig');
         $router->get('transfer-newsletter', 'NewsletterTransfer\Controllers\NewsletterTransferController@transfer');
-        $router->get('transfer-newsletter/manual', 'NewsletterTransfer\Controllers\NewsletterTransferController@manualTransfer');
+        $router->get('newsletter-transfer/manual', 'NewsletterTransfer\Controllers\NewsletterTransferController@manualTransfer');
     }
 }

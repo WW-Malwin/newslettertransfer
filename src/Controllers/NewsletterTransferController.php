@@ -5,22 +5,21 @@ namespace NewsletterTransfer\Controllers;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\ConfigRepository;
-use Plenty\Plugin\Http\Request as PluginRequest;
-use Plenty\Modules\Newsletter\Services\NewsletterService;
 use GuzzleHttp\Client;
+use Plenty\Modules\Newsletter\Services\NewsletterService;
 
 class NewsletterTransferController extends Controller
 {
     private $client;
     private $newsletterService;
 
-    public function __construct(NewsletterService $newsletterService, Client $client)
+    public function __construct(NewsletterService $newsletterService)
     {
+        $this->client = pluginApp(Client::class);
         $this->newsletterService = $newsletterService;
-        $this->client = $client;
     }
 
-    public function transfer(PluginRequest $request, ConfigRepository $config)
+    public function transfer(Request $request, ConfigRepository $config)
     {
         $apiEndpoint = $config->get('NewsletterTransfer.apiEndpoint');
         $username = $config->get('NewsletterTransfer.username');
