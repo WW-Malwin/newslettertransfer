@@ -1,0 +1,36 @@
+{
+    "formatVersion": 1,
+    "menu": {
+      "Config.credentialsTab": {
+        "label": "Config.credentialsTab",
+        "formFields": {
+          "apiEndpoint": {
+            "type": "inputText",
+            "required": true,
+            "label": "Config.apiEndpointLabel",
+            "options": {
+              "defaultValue": "https://api.emailsys.net/v1/subscribers"
+            }
+          },
+          "username": {
+            "type": "inputText",
+            "required": true,
+            "label": "Config.usernameLabel",
+            "options": {
+              "defaultValue": ""
+            }
+          },
+          "password": {
+            "type": "inputText",
+            "required": true,
+            "label": "Config.passwordLabel",
+            "options": {
+              "defaultValue": "",
+              "isPassword": true
+            }
+          }
+        }
+      }
+    }
+  }
+  
